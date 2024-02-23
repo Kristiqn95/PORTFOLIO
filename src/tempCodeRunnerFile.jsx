@@ -1,0 +1,1 @@
+<motion.div className="box" initial={{opacity:0, scale:0.5}} transition={{duration:2}}></motion.div>
