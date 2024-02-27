@@ -16,6 +16,11 @@
             font-size: 72px;
             text-align: center;
         }
+        
+        @include sMobile {
+            font-size: 36px;
+            text-align: center;
+        }
     }
 
     .mountains{

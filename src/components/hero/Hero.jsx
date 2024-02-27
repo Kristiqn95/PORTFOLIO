@@ -52,7 +52,7 @@ export const Hero = () => {
         Java React JSF Javascript Typescript MySQL PostgreSQL
       </motion.div>
       <div className="imageContainer">
-        <img src="/heroG.gif" alt="" />
+        <img src="/hero.png" alt="" />
       </div>
     </div>
   );

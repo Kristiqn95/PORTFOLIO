@@ -1,4 +1,3 @@
-import Test from "./Test";
 import "./app.scss"
 import { Navbar } from "./components/navbar/Navbar";
 import { Hero } from "./components/hero/Hero";
@@ -11,8 +10,8 @@ import { Cursor } from "./components/cursor/Cursor";
 const App = () => {
   return (
     <div>
-      <section id="Homepage">
       <Cursor/>
+      <section id="Homepage">
         <Navbar />
         <Hero />
       </section>
@@ -29,7 +28,6 @@ const App = () => {
       <section id="Contact">
         <Contact />
       </section>
-      {/* <Test/> */}
     </div>
   );
 };

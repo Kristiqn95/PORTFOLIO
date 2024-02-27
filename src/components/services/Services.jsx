@@ -1,20 +1,18 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./services.scss"
-import { color, motion, useInView } from "framer-motion"
+import { motion, useInView } from 'framer-motion'
 
 const variants = {
   initial: {
-    x: -500,
     y: 100,
     opacity: 0,
   },
   animate: {
-    x: 0,
     opacity: 1,
     y: 0,
     transition: {
       duration: 1,
-      straggerChildren: 0.1,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -22,14 +20,33 @@ function Services() {
 
   const ref = useRef();
 
-  const isInView = useInView(ref, {margin:"-100px"})
+  const isInView = useInView(ref, { margin: "-10px" })
+
+  const [isAnimationEnabled, setIsAnimationEnabled] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < "738px") {
+        setIsAnimationEnabled(false);
+      } else {
+        setIsAnimationEnabled(true);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <motion.div className="services" variants={variants} initial="initial" 
-    // animate="animate"
-    // whileInView="animate"
     ref={ref}
-    animate={isInView && "animate"}
+    animate={isInView && isAnimationEnabled ? "animate" : "initial"}
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
